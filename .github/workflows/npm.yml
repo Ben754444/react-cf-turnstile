@@ -14,6 +14,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install --frozen-lockfile
       - run: npm run pre-pub
-      - run: npm publish
+      - if: github.event.release.prerelease == true
+        run: |
+          sed -i -E "s/\"version\": \".[^\"]+/&-dev.$(git rev-parse --short HEAD)/g" package.json
+          npm publish --tag pre-release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - if: github.event.release.prerelease == false
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

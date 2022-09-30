@@ -1,6 +1,6 @@
 {
   "name": "react-cf-turnstile",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A React library for Cloudflare Turnstile (https://www.cloudflare.com/en-gb/products/turnstile/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
