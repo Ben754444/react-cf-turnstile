@@ -60,7 +60,6 @@ window.onloadTurnstileCallback = function() {
 class CFTurnstile extends React.Component<Props, State> {
     private readonly ref: React.RefObject<Turnstile>;
     constructor(props: Props) {
-        console.log("HELLO");
         super(props);
         this.renderTurnstile = this.renderTurnstile.bind(this);
         this.resetTurnstile = this.resetTurnstile.bind(this);
@@ -84,19 +83,14 @@ class CFTurnstile extends React.Component<Props, State> {
         }
         if(res) {
             res.then(() => {
-                console.log("FIRST LOAD");
-                //@ts-ignore
-                this.setState({turnstile: turnstile, ready: true}, () => {
+                this.setState({turnstile: window.turnstile, ready: true}, () => {
                     this.renderTurnstile();
                 })
             })
         }
     }
 
-    componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<State>) {
-        console.log(prevProps);
-        console.log(prevState);
-        console.log(this.props);
+    componentDidUpdate(prevProps: Readonly<Props>) {
         if(prevProps !== this.props){
             document.getElementById(this.state.id!)?.remove();
             this.renderTurnstile();
