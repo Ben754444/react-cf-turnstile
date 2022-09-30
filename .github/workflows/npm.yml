@@ -18,7 +18,7 @@ jobs:
       - if: github.event.release.prerelease == true
         run: |
           sed -i -E "s/\"version\": \".+\",/\"version\": \"${{github.event.release.tag_name}}\",/g" package.json
-          npm publish --tag dev
+          npm publish --tag ${{github.event.release.target_commitish}}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - if: github.event.release.prerelease == false
