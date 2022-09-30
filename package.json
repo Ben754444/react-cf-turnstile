@@ -4,6 +4,7 @@
   "description": "A React library for Cloudflare Turnstile (https://www.cloudflare.com/en-gb/products/turnstile/)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "https://github.com/ben754444/react-cf-turnstile",
   "scripts": {
     "build": "tsc",
     "pre-pub": "npm run build && rm -r src"
