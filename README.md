@@ -4,6 +4,15 @@ This library provides a React component that can be used to protect your site fr
 
 Basic usage can be found at the [Cloudflare Turnstile Documentation](https://developers.cloudflare.com/turnstile/).
 
+## Installation
+
+```bash
+npm i react-cf-turnstile
+```
+```bash
+yarn add react-cf-turnstile
+```
+
 ## Methods
 Methods can be called using a reference. Passing the widget ID is not necessary.
 
@@ -56,3 +65,15 @@ function App() {
     />
   );
 }
+```
+
+## Feeling experimental? Grab the latest dev build
+
+Note: dev builds are not guaranteed to be stable and may contain breaking changes not clearly documented
+
+```bash
+npm i react-cf-turnstile@dev
+```
+```bash
+yarn add react-cf-turnstile@dev
+```
