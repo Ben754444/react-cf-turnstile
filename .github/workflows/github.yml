@@ -1,0 +1,25 @@
+name: Node.js Package
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com/'
+      - run: |
+          sed -i -E "s!\"name\": \"react-cf-turnstile\"!\"name\": \"@ben754444/react-cf-turnstile\"!g" package.json
+      - run: yarn install --frozen-lockfile
+      - run: npm run pre-pub
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}

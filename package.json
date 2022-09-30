@@ -1,0 +1,20 @@
+{
+  "name": "react-cf-turnstile",
+  "version": "0.1.0",
+  "description": "A React library for Cloudflare Turnstile (https://www.cloudflare.com/en-gb/products/turnstile/)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "pre-pub": "npm run build && rm -r src"
+  },
+  "author": "Ben754444",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">= 16.8.0",
+    "react-dom": ">= 16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.21"
+  }
+}
