@@ -20,6 +20,7 @@ Methods can be called using a reference. Passing the widget ID is not necessary.
 |-------------|---------------------------------------------------------------------------|
 | render      | Calls the turnstile.render() function                                     |
 | reset       | Can be used to reset the widget if it has expired or needs to be reloaded |
+| remove      | Removes the widget                                                        |
 | getResponse | soon™                                                                     |
 
 
