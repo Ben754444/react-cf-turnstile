@@ -28,6 +28,7 @@ export interface Turnstile {
     render: (element: Turnstile, params: RenderParameters) => string;
     reset: (widgetId: string) => void;
     getResponse: (widgetId: string) => string;
+    remove: (widgetId: string) => void;
 }
 
 let resolveTurnstileLoad: () => void;
@@ -63,6 +64,7 @@ class CFTurnstile extends React.Component<Props, State> {
         super(props);
         this.renderTurnstile = this.renderTurnstile.bind(this);
         this.resetTurnstile = this.resetTurnstile.bind(this);
+        this.removeTurnstile = this.removeTurnstile.bind(this);
         //this.getTurnstileResponse = this.getTurnstileResponse.bind(this);
 
         const ready = typeof window.turnstile !== "undefined";
@@ -98,7 +100,6 @@ class CFTurnstile extends React.Component<Props, State> {
     }
 
 
-
     renderTurnstile() {
         if(this.props["load-callback"]) {
             this.props["load-callback"]();
@@ -119,6 +120,14 @@ class CFTurnstile extends React.Component<Props, State> {
             return;
         }
         this.state.turnstile.reset(this.state.id!)
+    }
+
+    removeTurnstile(){
+        if(!this.state.turnstile) {
+            return;
+        }
+        this.setState({rendered: false});
+        this.state.turnstile.remove(this.state.id!)
     }
 
     /*
