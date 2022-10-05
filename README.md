@@ -16,12 +16,12 @@ yarn add react-cf-turnstile
 ## Methods
 Methods can be called using a reference. Passing the widget ID is not necessary.
 
-| Name        | Description                                                               |
-|-------------|---------------------------------------------------------------------------|
-| render      | Calls the turnstile.render() function                                     |
-| reset       | Can be used to reset the widget if it has expired or needs to be reloaded |
-| remove      | Removes the widget                                                        |
-| getResponse | soon™                                                                     |
+| Name            | Description                                                               |
+|-----------------|---------------------------------------------------------------------------|
+| renderTurnstile | Calls the turnstile.render() function                                     |
+| resetTurnstile  | Can be used to reset the widget if it has expired or needs to be reloaded |
+| removeTurnstile | Removes the widget                                                        |
+| getResponse     | soon™                                                                     |
 
 
 ## Props
