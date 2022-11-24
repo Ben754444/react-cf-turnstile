@@ -49,7 +49,7 @@ import CFTurnstile from 'react-cf-turnstile';
 function App() {
   return (
     <CFTurnstile
-      siteKey="1x00000000000000000000AA" // change me! testing only
+      sitekey="1x00000000000000000000AA" // change me! testing only
       action="FORM_SUBMIT" // optional: used in analytics to differentiate between different turnstiles on the same site
       cData="some data" // optional: read cloudflare docs for more info
       callback={(token) => { // called when challenge is completed successfully
